@@ -1,6 +1,6 @@
 # Análisis Operativo y Costos de Flota Vehicular en México
 
-Modelo analítico desarrollado en **Power BI y Google BigQuery** para evaluar, simular y analizar el costo operativo y las emisiones de una flota vehicular mixta (Gasolina, Diésel, Híbrido y Eléctrico), utilizando datos de vehículos y precios de energéticos correspondientes al periodo 2017–2026.
+Modelo analítico desarrollado en **Power BI y Google BigQuery** para evaluar, simular y analizar el costo operativo y las emisiones de una flota vehicular mixta (Gasolina, Diésel, Híbrido y Eléctrico), utilizando datos históricos de vehículos y precios de energéticos correspondientes al periodo 2017–2026.
 
 ## 📊 Vista Previa del Tablero
 
@@ -10,8 +10,9 @@ Modelo analítico desarrollado en **Power BI y Google BigQuery** para evaluar, s
 
 * **Simulador Dinámico de Distancias:** Permite calcular el gasto operativo estimado según los kilómetros que el usuario decida consultar de forma interactiva.
 * **Modelado en Estrella:** Separación entre el catálogo de vehículos y las series históricas de precios de energéticos para facilitar el análisis en Power BI.
+* **Lógica para Vehículos Híbridos:** Tratamiento específico mediante medidas y lógica de cálculo en Power BI para estimar el costo operativo de vehículos híbridos.
 * **Análisis de Emisiones:** Comparación de emisiones de CO₂ entre vehículos y tipos de combustible.
-* **Análisis SQL:** Consultas realizadas en Google BigQuery para analizar rendimiento promedio, costos estimados y emisiones vehiculares.
+* **Análisis SQL:** Consultas realizadas en Google BigQuery para analizar rendimiento, costos y emisiones vehiculares.
 
 ## 🧮 Análisis SQL
 
@@ -24,7 +25,7 @@ Las consultas incluyen:
 * Top 10 de vehículos con mayores emisiones.
 * Emisiones promedio por tipo de combustible.
 
-📄 **[Ver consultas SQL](sql/analisis_vehicular.sql)**
+📄 **[Ver consultas SQL](analisis_vehicular.sql)**
 
 ## 📝 Notas Metodológicas y Fuentes de Datos
 
