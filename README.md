@@ -1,18 +1,38 @@
 # Análisis Operativo y Costos de Flota Vehicular en México
 
-Modelo analítico desarrollado en **Power BI** para evaluar, simular y optimizar el costo operativo por kilómetro de una flota vehicular mixta (Gasolina, Diésel, Híbrido y Eléctrico) utilizando datos históricos (2017–2026).
+Modelo analítico desarrollado en **Power BI y Google BigQuery** para evaluar, simular y analizar el costo operativo y las emisiones de una flota vehicular mixta (Gasolina, Diésel, Híbrido y Eléctrico), utilizando datos de vehículos y precios de energéticos correspondientes al periodo 2017–2026.
 
 ## 📊 Vista Previa del Tablero
+
 ![Vista General del Reporte](AUTOS_MX_.png)
 
 ## 🚀 Características Principales
-* **Simulador Dinámico de Distancias:** Permite calcular el gasto operativo exacto según los kilómetros que el usuario decida consultar de forma interactiva.
-* **Modelado en Estrella Limpio:** Separación eficiente entre el catálogo estático de vehículos (`dim_vehiculo`) y las series temporales de precios históricos (`precios_historico`).
-* **Lógica para Vehículos Híbridos:** Ponderación basada en factores de uso mixto (gasolina y electricidad) para evitar la duplicación de costos por recorrido.
+
+* **Simulador Dinámico de Distancias:** Permite calcular el gasto operativo estimado según los kilómetros que el usuario decida consultar de forma interactiva.
+* **Modelado en Estrella:** Separación entre el catálogo de vehículos y las series históricas de precios de energéticos para facilitar el análisis en Power BI.
+* **Análisis de Emisiones:** Comparación de emisiones de CO₂ entre vehículos y tipos de combustible.
+* **Análisis SQL:** Consultas realizadas en Google BigQuery para analizar rendimiento promedio, costos estimados y emisiones vehiculares.
+
+## 🧮 Análisis SQL
+
+Se utilizaron consultas SQL en **Google BigQuery** como complemento al modelo desarrollado en Power BI.
+
+Las consultas incluyen:
+
+* Rendimiento promedio por tipo de combustible.
+* Costo estimado para recorrer 35 km utilizando precios de combustible de 2026.
+* Top 10 de vehículos con mayores emisiones.
+* Emisiones promedio por tipo de combustible.
+
+📄 **[Ver consultas SQL](sql/analisis_vehicular.sql)**
 
 ## 📝 Notas Metodológicas y Fuentes de Datos
-* **Tratamiento de Datos:** Los precios de gasolina regular se procesaron mediante promedios anuales basados en registros diarios, mientras que la electricidad y combustibles alternos se estructuraron a partir de series de registros mensuales.
+
+* **Tratamiento de Datos:** Los precios de los energéticos se procesaron a partir de registros históricos, utilizando agregaciones anuales y mensuales según la disponibilidad de cada fuente.
+* **Clasificación de vehículos:** Los tipos de combustible y los valores de rendimiento fueron tomados de las fuentes de datos utilizadas, sin reasignar manualmente la clasificación de los vehículos.
+* **Precios utilizados:** Para el análisis de costos actuales se utilizaron los precios correspondientes a 2026. Las series históricas se conservaron para permitir análisis temporal.
 * **Fuentes de Información y Fabricantes:** Para complementar las especificaciones técnicas, rendimientos y costos de los vehículos y energéticos se consultaron bases de datos oficiales y catálogos de marcas:
+
   * [CONUEE - Rendimiento de combustible en vehículos ligeros](https://www.gob.mx/conuee/documentos/rendimiento-de-combustible-en-vehiculos-ligeros-de-venta-en-mexico)
   * [Comisión Nacional de Energía (CNE) - Datos Abiertos](https://www.gob.mx/cne/articulos/consulta-de-datos-abiertos)
   * [CFE (Comisión Federal de Electricidad)](https://www.cfe.gob.mx/Pages/default.aspx)
